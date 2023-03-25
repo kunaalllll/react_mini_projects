@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Bmi.css";
 
 export const Bmi = () => {
@@ -12,27 +12,46 @@ export const Bmi = () => {
   const calcBmi = (e) => {
     e.preventDefault();
     if (weight == 0 || height == 0) {
+      console.log(1);
+
       alert("Please enter valid weight and height");
     } else {
+      console.log(bmi, height, weight, 2);
+
       const newBmi = (weight / height ** 2) * 10000;
       setbmi(newBmi.toFixed(1));
-    }
-    // health messages
-    if (bmi <= 18) {
-      setmessage("You are underweight");
-    } else if (bmi >= 18.5 && bmi <= 25.9) {
-      setmessage("You are healthy");
-    } else {
-      setmessage("You are overweight");
+      console.log(bmi, 3, newBmi);
+
+      // health messages
     }
   };
+
+  useEffect(() => {
+    if (bmi > 0) {
+      if (bmi <= 18) {
+        console.log(bmi, 4);
+
+        setmessage("You are underweight");
+      } else if (bmi >= 18.5 && bmi <= 25.9) {
+        console.log(bmi, 5);
+
+        setmessage("You are healthy");
+      } else {
+        console.log(bmi, 6);
+
+        setmessage("You are overweight");
+      }
+    } else {
+      setmessage("Please enter valid height and weight");
+    }
+  }, [bmi]);
 
   return (
     <>
       <center>
         <div className="container">
           <div className="form">
-            <form action="" onSubmit={calcBmi}>
+            <form action="">
               <div className="weight">
                 <label htmlFor="">Weight(in kg)</label>
                 <input
@@ -53,7 +72,9 @@ export const Bmi = () => {
                 />
               </div>
 
-              <button type="submit">Calculate BMI</button>
+              <button type="submit" onClick={calcBmi}>
+                Calculate BMI
+              </button>
             </form>
           </div>
         </div>

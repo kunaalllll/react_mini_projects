@@ -44,7 +44,7 @@ class App extends Component {
         {/* <Info deleteNinja={this.deleteNinja} ninjas={this.state.ninjas} />
         <AddNinja addNinja={this.addNinja} /> */}
 
-        <Layout />
+        <Bmi />
       </div>
     );
   }
