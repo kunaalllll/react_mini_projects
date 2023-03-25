@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.container{
+    background-color: lightgreen;
+    padding: 20px;
+} 
+
+.bmi-info{
+    margin-top: 20px;
+}

@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import Info from "./Info";
-import AddNinja from "./AddNinja";
-import Timer from "./Timer";
-import Greeter from "./Greeter";
+import Info from "./components/ninja/Info";
+import AddNinja from "./components/ninja/AddNinja";
+import Timer from "./components/timer/Timer";
+import Greeter from "./components/greeter/Greeter";
+import { Bmi } from "./components/bmi calculator/Bmi";
+import Layout from "./components/router/Layout";
 
 class App extends Component {
   state = {
@@ -42,7 +44,7 @@ class App extends Component {
         {/* <Info deleteNinja={this.deleteNinja} ninjas={this.state.ninjas} />
         <AddNinja addNinja={this.addNinja} /> */}
 
-        <Greeter />
+        <Layout />
       </div>
     );
   }
