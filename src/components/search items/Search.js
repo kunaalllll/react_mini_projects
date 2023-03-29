@@ -1,8 +1,17 @@
 import React, { useState } from "react";
+import Table from "./Table";
 import "./style.css";
 
 const Search = ({ Users }) => {
   const [query, setquery] = useState("");
+
+  const searchFunction = (data) => {
+    return data.filter(
+      (users) =>
+        users.first_name.toLowerCase().includes(query) ||
+        users.email.toLowerCase().includes(query)
+    );
+  };
 
   return (
     <>
@@ -13,6 +22,9 @@ const Search = ({ Users }) => {
         onChange={(e) => setquery(e.target.value)}
       />
 
+      <Table data={searchFunction(Users)} />
+
+      {/* 
       <ul className="list">
         {Users.filter((users) =>
           users.first_name.toLowerCase().includes(query)
@@ -21,7 +33,7 @@ const Search = ({ Users }) => {
             {users.first_name}
           </li>
         ))}
-      </ul>
+      </ul> */}
     </>
   );
 };

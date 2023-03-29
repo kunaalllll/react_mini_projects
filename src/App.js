@@ -7,7 +7,7 @@ import { Bmi } from "./components/bmi calculator/Bmi";
 import Layout from "./components/router/Layout";
 import Search from "./components/search items/Search";
 import { Users } from "./components/search items/Data";
-
+import Table from "./components/search items/Table";
 
 class App extends Component {
   // state = {
